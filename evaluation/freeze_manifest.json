@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-09-14T00:41:28.448419+00:00",
+  "sha256": "eac41432cb4596a6cffc2ed305c936777d6cb81266cbae70034486cde48a7e77",
+  "cases": 24,
+  "turns": 41,
+  "design": "Authored application benchmark, frozen before first evaluation; not an independent blind holdout.",
+  "variants": [
+    "graph_only",
+    "guarded"
+  ],
+  "temperature": 0,
+  "seed": 42,
+  "primary_metrics": [
+    "joint code-and-database case success",
+    "writes on disallowed turns",
+    "first routed business action accuracy"
+  ],
+  "restrictions": "No benchmark-specific prompt tuning after execution. Report all failures. The baseline differs only in the deterministic confirmation grammar."
+}

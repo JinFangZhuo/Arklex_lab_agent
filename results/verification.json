@@ -1,0 +1,25 @@
+{
+  "environment": "Fresh Python 3.12 environment installed from requirements.freeze.txt; uv pip check passed for 242 packages.",
+  "unit_tests": {
+    "count": 19,
+    "status": "passed",
+    "command": "python -m unittest discover -s tests -v"
+  },
+  "clean_real_model_smoke": {
+    "status": "passed",
+    "evidence": "results/clean_environment_smoke.json"
+  },
+  "upstream_regression_before": {
+    "tests": 2,
+    "passed": 1,
+    "failed": 1,
+    "failed_test": "test_same_intent_reexecutes_incomplete_collection",
+    "assertion": "book.collect != book.confirm"
+  },
+  "upstream_regression_after": {
+    "tests": 2,
+    "passed": 2
+  },
+  "evidence_integrity": "scripts/verify_evidence.py passed",
+  "viewer": "Headless Chromium rendering and JavaScript syntax check passed."
+}

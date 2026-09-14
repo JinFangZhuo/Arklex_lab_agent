@@ -1,0 +1,85 @@
+{
+  "reviewer": "AI-assisted implementation review",
+  "raw_graph_sha256": "64fcff86272414159b633b9f6e28ca736ad8c43042a7f56f7c717108e220e526",
+  "runtime_graph_sha256": "6f00d48ceca37d8de5f5719be88d14c3c4604f18a60601c833b8b579c1daad41",
+  "issues": [
+    "Generator emits an older node schema (type=start, attribute.value); runtime requires an agent root and data fields.",
+    "Resource assignment uses round-robin indexing in the pinned BestPracticeManager, not semantic matching.",
+    "The generated creation flow places a creation step before an explicit proceed question.",
+    "Single-step fallback tasks omit collection, validation and confirmation."
+  ],
+  "changes": [
+    "Use current runtime schema.",
+    "Bind deterministic read tools to query nodes.",
+    "Use collect -> display -> local approval/correction/discard edges for each write.",
+    "Add an explicit fallback Worker at resource ID planner.",
+    "Enforce transactional invariants and optional application confirmation guard."
+  ],
+  "task_mapping": [
+    {
+      "generated_task_id": "task_1",
+      "name": "List available laboratory equipment",
+      "intent": "User wants to list available laboratory equipment",
+      "runtime_action": "list_equipment",
+      "entry_node": "list_equipment.query",
+      "raw_steps": 5,
+      "decision": "Keep task and intent; replace steps and resource assignments with reviewed phase template."
+    },
+    {
+      "generated_task_id": "task_2",
+      "name": "Check availability of specific equipment",
+      "intent": "User wants to check the availability of specific equipment",
+      "runtime_action": "availability",
+      "entry_node": "availability.collect",
+      "raw_steps": 1,
+      "decision": "Keep task and intent; replace steps and resource assignments with reviewed phase template."
+    },
+    {
+      "generated_task_id": "task_3",
+      "name": "Create a reservation for a specific equipment",
+      "intent": "User wants to create a reservation for a specific piece of equipment",
+      "runtime_action": "book",
+      "entry_node": "book.collect",
+      "raw_steps": 7,
+      "decision": "Keep task and intent; replace steps and resource assignments with reviewed phase template."
+    },
+    {
+      "generated_task_id": "task_4",
+      "name": "List own reservations",
+      "intent": "User wants to list their own reservations",
+      "runtime_action": "list_bookings",
+      "entry_node": "list_bookings.query",
+      "raw_steps": 1,
+      "decision": "Keep task and intent; replace steps and resource assignments with reviewed phase template."
+    },
+    {
+      "generated_task_id": "task_5",
+      "name": "Reschedule an existing reservation",
+      "intent": "User wants to reschedule an existing reservation",
+      "runtime_action": "reschedule",
+      "entry_node": "reschedule.collect",
+      "raw_steps": 8,
+      "decision": "Keep task and intent; replace steps and resource assignments with reviewed phase template."
+    },
+    {
+      "generated_task_id": "task_6",
+      "name": "Cancel an existing reservation",
+      "intent": "User wants to cancel an existing reservation",
+      "runtime_action": "cancel",
+      "entry_node": "cancel.collect",
+      "raw_steps": 1,
+      "decision": "Keep task and intent; replace steps and resource assignments with reviewed phase template."
+    },
+    {
+      "generated_task_id": "task_7",
+      "name": "Understand booking rules",
+      "intent": "User wants to understand the booking rules",
+      "runtime_action": "policy",
+      "entry_node": "policy.query",
+      "raw_steps": 1,
+      "decision": "Keep task and intent; replace steps and resource assignments with reviewed phase template."
+    }
+  ],
+  "node_count": 18,
+  "edge_count": 20
+}

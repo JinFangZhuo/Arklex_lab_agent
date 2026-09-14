@@ -1,0 +1,15 @@
+--- a/arklex/orchestrator/task_graph/nlu_graph.py
++++ b/arklex/orchestrator/task_graph/nlu_graph.py
+@@ -525,7 +525,11 @@
+                 return node_output, params
+             # If global intent prediction failed but we have a pred_intent that's not unsure,
+             # try random next node
+-            if pred_intent and pred_intent != self.unsure_intent.get("intent"):
++            if (
++                pred_intent
++                and pred_intent != self.unsure_intent.get("intent")
++                and params.node_status.get(curr_node, StatusEnum.COMPLETE) != StatusEnum.INCOMPLETE
++            ):
+                 has_random_next_node: bool
+                 node_output: dict[str, Any]
+                 has_random_next_node, node_output, params = (

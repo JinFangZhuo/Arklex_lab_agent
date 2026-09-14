@@ -1,0 +1,44 @@
+{
+  "completed_utc": "2026-09-14T00:49:55.200722+00:00",
+  "protocol": "role-demonstrated adaptive customer, v2",
+  "episodes": 8,
+  "successes": 5,
+  "invalid_episodes": 0,
+  "max_turns": 6,
+  "agent_variant": "guarded",
+  "agent_temperature": 0,
+  "simulator_temperature": 0.7,
+  "simulator_seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030,
+    2031,
+    2032,
+    2033
+  ],
+  "code_sha256": {
+    "lab_booking/__init__.py": "aba247a281316b01810bfc9630882c431cf872dadd429fc82d08ff24d23554cc",
+    "lab_booking/app.py": "f2aa06a985eaab836ea27517fb82cf899c6b578d38899740d65e536d09a35740",
+    "lab_booking/compile_graph.py": "a8f8f27825a5ff5db9bb7f3a6e0a37a8cb6bc5b3f6f45f9165b7b000bf84db07",
+    "lab_booking/database.py": "8d7eaedd0732cdfc353e23681a5a854388c9d599506b203916368c089f580967",
+    "lab_booking/evaluate.py": "ddc52aa6b406070b3e729c955bce777382413e9f9fd35704a0b9b8eeacbecff5",
+    "lab_booking/generate.py": "20c729b6ec22eea302744d6456a3428a2837fdab75b9c5699215fca29865b0ac",
+    "lab_booking/model.py": "fa7980521f78efba4ac81f92a69d2deed62fab11aba8e426689e0faf2f94d5f9",
+    "lab_booking/simulate.py": "939cb001763a9d1dffa88654ef807b66bd435900e74e55c101955ee81f257c4a",
+    "lab_booking/worker.py": "5bed5814d9baac3df6ce991732d3c5d4003e40a697ab9bb8a04e2e5cb67d2c5e",
+    "taskgraph.json": "6f00d48ceca37d8de5f5719be88d14c3c4604f18a60601c833b8b579c1daad41",
+    "config.json": "5ee88158a97bdff17f1fbb1b163fac7581bce189336a805b83499766063e98ca",
+    "patches/generator-compatibility.patch": "b9a55d066086c997357751349c624bc34762398d2debd10019e6a9f4721aab0d",
+    "patches/runtime-incomplete.patch": "a209ed7c2a99b618af3736a8f202d050ac2a988ac3deb9ec75a9e4df4be080b5"
+  },
+  "harness_sha256": "817f31cd8bfdde6298e85cf286cc38861c74f8baf4baac628f4811d10008e0d9",
+  "goals_sha256": "3afac100fe44474273beb3e5923259b6f7737be016639a6a237ea264fae27a10",
+  "caveat": "Simulator revised after an invalid pilot; repeated goals are development evidence, not a blind holdout. Same model family for agent and simulator.",
+  "failed_episodes": [
+    "direct-booker",
+    "direct-rescheduler",
+    "incremental-rescheduler"
+  ]
+}

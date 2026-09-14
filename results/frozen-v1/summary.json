@@ -1,0 +1,70 @@
+{
+  "started_utc": "2026-09-14T00:44:20.280066+00:00",
+  "corpus": {
+    "created_utc": "2026-09-14T00:41:28.448419+00:00",
+    "sha256": "eac41432cb4596a6cffc2ed305c936777d6cb81266cbae70034486cde48a7e77",
+    "cases": 24,
+    "turns": 41,
+    "design": "Authored application benchmark, frozen before first evaluation; not an independent blind holdout.",
+    "variants": [
+      "graph_only",
+      "guarded"
+    ],
+    "temperature": 0,
+    "seed": 42,
+    "primary_metrics": [
+      "joint code-and-database case success",
+      "writes on disallowed turns",
+      "first routed business action accuracy"
+    ],
+    "restrictions": "No benchmark-specific prompt tuning after execution. Report all failures. The baseline differs only in the deterministic confirmation grammar."
+  },
+  "code_sha256": {
+    "lab_booking/__init__.py": "aba247a281316b01810bfc9630882c431cf872dadd429fc82d08ff24d23554cc",
+    "lab_booking/app.py": "f2aa06a985eaab836ea27517fb82cf899c6b578d38899740d65e536d09a35740",
+    "lab_booking/compile_graph.py": "a8f8f27825a5ff5db9bb7f3a6e0a37a8cb6bc5b3f6f45f9165b7b000bf84db07",
+    "lab_booking/database.py": "8d7eaedd0732cdfc353e23681a5a854388c9d599506b203916368c089f580967",
+    "lab_booking/evaluate.py": "ddc52aa6b406070b3e729c955bce777382413e9f9fd35704a0b9b8eeacbecff5",
+    "lab_booking/generate.py": "20c729b6ec22eea302744d6456a3428a2837fdab75b9c5699215fca29865b0ac",
+    "lab_booking/model.py": "fa7980521f78efba4ac81f92a69d2deed62fab11aba8e426689e0faf2f94d5f9",
+    "lab_booking/simulate.py": "939cb001763a9d1dffa88654ef807b66bd435900e74e55c101955ee81f257c4a",
+    "lab_booking/worker.py": "5bed5814d9baac3df6ce991732d3c5d4003e40a697ab9bb8a04e2e5cb67d2c5e",
+    "taskgraph.json": "6f00d48ceca37d8de5f5719be88d14c3c4604f18a60601c833b8b579c1daad41",
+    "config.json": "5ee88158a97bdff17f1fbb1b163fac7581bce189336a805b83499766063e98ca",
+    "patches/generator-compatibility.patch": "b9a55d066086c997357751349c624bc34762398d2debd10019e6a9f4721aab0d",
+    "patches/runtime-incomplete.patch": "a209ed7c2a99b618af3736a8f202d050ac2a988ac3deb9ec75a9e4df4be080b5"
+  },
+  "variants": {
+    "graph_only": {
+      "cases": 24,
+      "successes": 23,
+      "database_correct_cases": 23,
+      "unauthorized_write_turns": 1,
+      "route_correct": 40,
+      "route_labeled_turns": 40,
+      "model_calls": 68,
+      "model_latency_seconds": 14.877050459035672,
+      "input_tokens": 43498,
+      "output_tokens": 2303,
+      "failed_cases": [
+        "conditional-approval"
+      ]
+    },
+    "guarded": {
+      "cases": 24,
+      "successes": 23,
+      "database_correct_cases": 23,
+      "unauthorized_write_turns": 0,
+      "route_correct": 40,
+      "route_labeled_turns": 40,
+      "model_calls": 68,
+      "model_latency_seconds": 14.751555292168632,
+      "input_tokens": 43496,
+      "output_tokens": 2302,
+      "failed_cases": [
+        "natural-approval"
+      ]
+    }
+  },
+  "finished_utc": "2026-09-14T00:44:55.262057+00:00"
+}

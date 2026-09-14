@@ -1,0 +1,357 @@
+[
+  {
+    "id": "task_1",
+    "name": "List available laboratory equipment",
+    "description": "User wants to list available laboratory equipment",
+    "steps": [
+      {
+        "task": "List available laboratory equipment",
+        "description": "List available laboratory equipment",
+        "step_id": "step_1",
+        "required_fields": [],
+        "resource": {
+          "name": "LabCollectWorker",
+          "description": "LabCollectWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Retrieve and display a list of available equipment, including equipment name, model, and availability status.",
+        "description": "Retrieve and display a list of available equipment, including equipment name, model, and availability status.",
+        "step_id": "step_2",
+        "required_fields": [],
+        "resource": {
+          "name": "LabConfirmWorker",
+          "description": "LabConfirmWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Ask if the user needs more details or has any specific equipment in mind.",
+        "description": "Ask if the user needs more details or has any specific equipment in mind.",
+        "step_id": "step_3",
+        "required_fields": [],
+        "resource": {
+          "name": "LabCommitWorker",
+          "description": "LabCommitWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Confirm the user's selection and provide additional information if needed.",
+        "description": "Confirm the user's selection and provide additional information if needed.",
+        "step_id": "step_4",
+        "required_fields": [],
+        "resource": {
+          "name": "LabQueryWorker",
+          "description": "LabQueryWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "End the interaction, thanking the user for their interest and providing a way to proceed with the next task.",
+        "description": "End the interaction, thanking the user for their interest and providing a way to proceed with the next task.",
+        "step_id": "step_5",
+        "required_fields": [],
+        "resource": {
+          "name": "MessageWorker",
+          "description": "MessageWorker worker",
+          "type": "worker"
+        }
+      }
+    ],
+    "dependencies": [],
+    "required_resources": [],
+    "estimated_duration": "1 hour",
+    "priority": 3,
+    "intent": "User wants to list available laboratory equipment",
+    "level": 0
+  },
+  {
+    "id": "task_2",
+    "name": "Check availability of specific equipment",
+    "description": "User wants to check the availability of specific equipment",
+    "steps": [
+      {
+        "task": "Execute: Execute Check availability of specific equipment",
+        "description": "Execute: Execute Check availability of specific equipment",
+        "step_id": "step_1",
+        "required_fields": [],
+        "resource": {
+          "name": "LabCollectWorker",
+          "description": "LabCollectWorker worker",
+          "type": "worker"
+        }
+      }
+    ],
+    "dependencies": [],
+    "required_resources": [],
+    "estimated_duration": "1 hour",
+    "priority": 3,
+    "intent": "User wants to check the availability of specific equipment",
+    "level": 0
+  },
+  {
+    "id": "task_3",
+    "name": "Create a reservation for a specific equipment",
+    "description": "User wants to create a reservation for a specific equipment",
+    "steps": [
+      {
+        "task": "Retrieve the information about the equipment and ask the user which equipment they would like to reserve.",
+        "description": "Retrieve the information about the equipment and ask the user which equipment they would like to reserve.",
+        "step_id": "step_1",
+        "required_fields": [],
+        "resource": {
+          "name": "LabCollectWorker",
+          "description": "LabCollectWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Check the availability of the selected equipment and confirm the availability with the user.",
+        "description": "Check the availability of the selected equipment and confirm the availability with the user.",
+        "step_id": "step_2",
+        "required_fields": [],
+        "resource": {
+          "name": "LabConfirmWorker",
+          "description": "LabConfirmWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Ask the user for the reservation date and time, and confirm the details with the user.",
+        "description": "Ask the user for the reservation date and time, and confirm the details with the user.",
+        "step_id": "step_3",
+        "required_fields": [],
+        "resource": {
+          "name": "LabCommitWorker",
+          "description": "LabCommitWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Create the reservation and confirm the details with the user.",
+        "description": "Create the reservation and confirm the details with the user.",
+        "step_id": "step_4",
+        "required_fields": [],
+        "resource": {
+          "name": "LabQueryWorker",
+          "description": "LabQueryWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Ask the user if they would like to proceed with the reservation or if they need more information.",
+        "description": "Ask the user if they would like to proceed with the reservation or if they need more information.",
+        "step_id": "step_5",
+        "required_fields": [],
+        "resource": {
+          "name": "MessageWorker",
+          "description": "MessageWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Confirm the user's selection and provide additional information if needed.",
+        "description": "Confirm the user's selection and provide additional information if needed.",
+        "step_id": "step_6",
+        "required_fields": [],
+        "resource": {
+          "name": "LabCollectWorker",
+          "description": "LabCollectWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Notify the user of the successful reservation and provide instructions for next steps.",
+        "description": "Notify the user of the successful reservation and provide instructions for next steps.",
+        "step_id": "step_7",
+        "required_fields": [],
+        "resource": {
+          "name": "LabConfirmWorker",
+          "description": "LabConfirmWorker worker",
+          "type": "worker"
+        }
+      }
+    ],
+    "dependencies": [],
+    "required_resources": [],
+    "estimated_duration": "1 hour",
+    "priority": 3,
+    "intent": "User wants to create a reservation for a specific piece of equipment",
+    "level": 0
+  },
+  {
+    "id": "task_4",
+    "name": "List own reservations",
+    "description": "User wants to list their own reservations",
+    "steps": [
+      {
+        "task": "Execute: Execute List own reservations",
+        "description": "Execute: Execute List own reservations",
+        "step_id": "step_1",
+        "required_fields": [],
+        "resource": {
+          "name": "LabCollectWorker",
+          "description": "LabCollectWorker worker",
+          "type": "worker"
+        }
+      }
+    ],
+    "dependencies": [],
+    "required_resources": [],
+    "estimated_duration": "1 hour",
+    "priority": 3,
+    "intent": "User wants to list their own reservations",
+    "level": 0
+  },
+  {
+    "id": "task_5",
+    "name": "Reschedule an existing reservation",
+    "description": "User wants to reschedule an existing reservation",
+    "steps": [
+      {
+        "task": "Retrieve the information about the user's reservations and inquire about the reservation they want to reschedule.",
+        "description": "Retrieve the information about the user's reservations and inquire about the reservation they want to reschedule.",
+        "step_id": "step_1",
+        "required_fields": [],
+        "resource": {
+          "name": "LabCollectWorker",
+          "description": "LabCollectWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Display a list of the user's reservations.",
+        "description": "Display a list of the user's reservations.",
+        "step_id": "step_2",
+        "required_fields": [],
+        "resource": {
+          "name": "LabConfirmWorker",
+          "description": "LabConfirmWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Inquire which reservation the user wants to reschedule.",
+        "description": "Inquire which reservation the user wants to reschedule.",
+        "step_id": "step_3",
+        "required_fields": [],
+        "resource": {
+          "name": "LabCommitWorker",
+          "description": "LabCommitWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Confirm the user's selection of the reservation to reschedule.",
+        "description": "Confirm the user's selection of the reservation to reschedule.",
+        "step_id": "step_4",
+        "required_fields": [],
+        "resource": {
+          "name": "LabQueryWorker",
+          "description": "LabQueryWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Inquire about the new date and time for the reservation.",
+        "description": "Inquire about the new date and time for the reservation.",
+        "step_id": "step_5",
+        "required_fields": [],
+        "resource": {
+          "name": "MessageWorker",
+          "description": "MessageWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Confirm the user's new date and time for the reservation.",
+        "description": "Confirm the user's new date and time for the reservation.",
+        "step_id": "step_6",
+        "required_fields": [],
+        "resource": {
+          "name": "LabCollectWorker",
+          "description": "LabCollectWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Commit the rescheduled reservation.",
+        "description": "Commit the rescheduled reservation.",
+        "step_id": "step_7",
+        "required_fields": [],
+        "resource": {
+          "name": "LabConfirmWorker",
+          "description": "LabConfirmWorker worker",
+          "type": "worker"
+        }
+      },
+      {
+        "task": "Provide a confirmation message and ask if the user needs help with anything else.",
+        "description": "Provide a confirmation message and ask if the user needs help with anything else.",
+        "step_id": "step_8",
+        "required_fields": [],
+        "resource": {
+          "name": "LabCommitWorker",
+          "description": "LabCommitWorker worker",
+          "type": "worker"
+        }
+      }
+    ],
+    "dependencies": [],
+    "required_resources": [],
+    "estimated_duration": "1 hour",
+    "priority": 3,
+    "intent": "User wants to reschedule an existing reservation",
+    "level": 0
+  },
+  {
+    "id": "task_6",
+    "name": "Cancel an existing reservation",
+    "description": "User wants to cancel an existing reservation",
+    "steps": [
+      {
+        "task": "Execute: Execute Cancel an existing reservation",
+        "description": "Execute: Execute Cancel an existing reservation",
+        "step_id": "step_1",
+        "required_fields": [],
+        "resource": {
+          "name": "LabCollectWorker",
+          "description": "LabCollectWorker worker",
+          "type": "worker"
+        }
+      }
+    ],
+    "dependencies": [],
+    "required_resources": [],
+    "estimated_duration": "1 hour",
+    "priority": 3,
+    "intent": "User wants to cancel an existing reservation",
+    "level": 0
+  },
+  {
+    "id": "task_7",
+    "name": "Understand booking rules",
+    "description": "User wants to understand the booking rules",
+    "steps": [
+      {
+        "task": "Execute: Execute Understand booking rules",
+        "description": "Execute: Execute Understand booking rules",
+        "step_id": "step_1",
+        "required_fields": [],
+        "resource": {
+          "name": "LabCollectWorker",
+          "description": "LabCollectWorker worker",
+          "type": "worker"
+        }
+      }
+    ],
+    "dependencies": [],
+    "required_resources": [],
+    "estimated_duration": "1 hour",
+    "priority": 3,
+    "intent": "User wants to understand the booking rules",
+    "level": 0
+  }
+]

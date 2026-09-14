@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-09-14T00:35:58.125699+00:00",
+  "upstream_commit": "ea22ff3e0c44b613408e688a3044209a64db35a9",
+  "entrypoint": "arklex.orchestrator.generator.core.generator.Generator.generate",
+  "compatibility_patch": "patches/generator-compatibility.patch",
+  "source_documents_sha256": {
+    "docs/generator_domain.json": "a0c7380f44d20b84fa95c1a5d38b9cc92f59ca4850a94c2289ebce4cc93ca362",
+    "docs/generator_instructions.json": "d0f033b9b915f8291ca251514fddf1b1d2ac294847c240ca1c542d1a209771e2"
+  },
+  "model": "qwen2.5-3b-instruct",
+  "temperature": 0,
+  "seed": 42,
+  "model_calls": 18,
+  "tasks": 7,
+  "nodes": 32,
+  "edges": 31,
+  "review_status": "unreviewed; raw output is not used for database actions"
+}

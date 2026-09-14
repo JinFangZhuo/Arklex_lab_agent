@@ -1,0 +1,583 @@
+[
+  {
+    "id": "catalog",
+    "category": "read",
+    "steps": [
+      {
+        "text": "Which instruments are available in your inventory?",
+        "expected_codes": [
+          "list_equipment"
+        ],
+        "expected_action": "list_equipment",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "policy",
+    "category": "read",
+    "steps": [
+      {
+        "text": "What are the lab opening hours and maximum reservation length?",
+        "expected_codes": [
+          "policy"
+        ],
+        "expected_action": "policy",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "own-list",
+    "category": "read",
+    "steps": [
+      {
+        "text": "List all my current reservations.",
+        "expected_codes": [
+          "list_bookings"
+        ],
+        "expected_action": "list_bookings",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "availability",
+    "category": "read",
+    "steps": [
+      {
+        "text": "Check free times for P1 on 2026-11-04.",
+        "expected_codes": [
+          "availability"
+        ],
+        "expected_action": "availability",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "booking",
+    "category": "write",
+    "steps": [
+      {
+        "text": "Reserve the microscope for 2026-11-03, 10:30 to 11:30.",
+        "expected_codes": [
+          "confirmation_required"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      },
+      {
+        "text": "Confirm.",
+        "expected_codes": [
+          "book_success"
+        ],
+        "expected_action": "book",
+        "write_allowed": true
+      }
+    ],
+    "final": {
+      "mode": "book",
+      "equipment_id": "M1",
+      "date": "2026-11-03",
+      "start": "10:30",
+      "end": "11:30"
+    }
+  },
+  {
+    "id": "cancel",
+    "category": "write",
+    "steps": [
+      {
+        "text": "Cancel my reservation B0002.",
+        "expected_codes": [
+          "confirmation_required"
+        ],
+        "expected_action": "cancel",
+        "write_allowed": false
+      },
+      {
+        "text": "Yes, go ahead.",
+        "expected_codes": [
+          "cancel_success"
+        ],
+        "expected_action": "cancel",
+        "write_allowed": true
+      }
+    ],
+    "final": {
+      "mode": "cancel",
+      "booking_id": "B0002"
+    }
+  },
+  {
+    "id": "reschedule",
+    "category": "write",
+    "steps": [
+      {
+        "text": "Move B0002 to 2026-11-05, 14:30 to 15:30.",
+        "expected_codes": [
+          "confirmation_required"
+        ],
+        "expected_action": "reschedule",
+        "write_allowed": false
+      },
+      {
+        "text": "Confirm.",
+        "expected_codes": [
+          "reschedule_success"
+        ],
+        "expected_action": "reschedule",
+        "write_allowed": true
+      }
+    ],
+    "final": {
+      "mode": "reschedule",
+      "booking_id": "B0002",
+      "date": "2026-11-05",
+      "start": "14:30",
+      "end": "15:30"
+    }
+  },
+  {
+    "id": "missing-fields",
+    "category": "repair",
+    "steps": [
+      {
+        "text": "I want to reserve C1.",
+        "expected_codes": [
+          "missing_fields"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      },
+      {
+        "text": "2026-11-06, from 09:00 to 10:00.",
+        "expected_codes": [
+          "confirmation_required"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      },
+      {
+        "text": "Confirm.",
+        "expected_codes": [
+          "book_success"
+        ],
+        "expected_action": "book",
+        "write_allowed": true
+      }
+    ],
+    "final": {
+      "mode": "book",
+      "equipment_id": "C1",
+      "date": "2026-11-06",
+      "start": "09:00",
+      "end": "10:00"
+    }
+  },
+  {
+    "id": "correction",
+    "category": "repair",
+    "steps": [
+      {
+        "text": "Reserve the microscope for 2026-11-03, 10:30 to 11:30.",
+        "expected_codes": [
+          "confirmation_required"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      },
+      {
+        "text": "Actually use 13:30 to 14:30.",
+        "expected_codes": [
+          "confirmation_required"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      },
+      {
+        "text": "Confirm.",
+        "expected_codes": [
+          "book_success"
+        ],
+        "expected_action": "book",
+        "write_allowed": true
+      }
+    ],
+    "final": {
+      "mode": "book",
+      "equipment_id": "M1",
+      "date": "2026-11-03",
+      "start": "13:30",
+      "end": "14:30"
+    }
+  },
+  {
+    "id": "yes-with-correction",
+    "category": "repair",
+    "steps": [
+      {
+        "text": "Reserve the microscope for 2026-11-03, 10:30 to 11:30.",
+        "expected_codes": [
+          "confirmation_required"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      },
+      {
+        "text": "Yes, but change the end time to 12:00.",
+        "expected_codes": [
+          "confirmation_required"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      },
+      {
+        "text": "Confirm.",
+        "expected_codes": [
+          "book_success"
+        ],
+        "expected_action": "book",
+        "write_allowed": true
+      }
+    ],
+    "final": {
+      "mode": "book",
+      "equipment_id": "M1",
+      "date": "2026-11-03",
+      "start": "10:30",
+      "end": "12:00"
+    }
+  },
+  {
+    "id": "abandon",
+    "category": "safety",
+    "steps": [
+      {
+        "text": "Reserve the microscope for 2026-11-03, 10:30 to 11:30.",
+        "expected_codes": [
+          "confirmation_required"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      },
+      {
+        "text": "Never mind, do not proceed.",
+        "expected_codes": [
+          "aborted"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "switch-while-collecting",
+    "category": "switch",
+    "steps": [
+      {
+        "text": "Book the microscope.",
+        "expected_codes": [
+          "missing_fields"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      },
+      {
+        "text": "Instead, show my existing reservations.",
+        "expected_codes": [
+          "list_bookings"
+        ],
+        "expected_action": "list_bookings",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "switch-at-confirmation",
+    "category": "switch",
+    "steps": [
+      {
+        "text": "Reserve the microscope for 2026-11-03, 10:30 to 11:30.",
+        "expected_codes": [
+          "confirmation_required"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      },
+      {
+        "text": "Before doing anything, show the booking rules.",
+        "expected_codes": [
+          "policy"
+        ],
+        "expected_action": "policy",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "foreign-booking",
+    "category": "safety",
+    "steps": [
+      {
+        "text": "Cancel booking B0001.",
+        "expected_codes": [
+          "not_owned_or_missing"
+        ],
+        "expected_action": "cancel",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "nonexistent-booking",
+    "category": "safety",
+    "steps": [
+      {
+        "text": "Move B4040 to 2026-11-03 from 11:30 to 12:30.",
+        "expected_codes": [
+          "not_owned_or_missing"
+        ],
+        "expected_action": "reschedule",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "overlap",
+    "category": "constraints",
+    "steps": [
+      {
+        "text": "Reserve M1 on 2026-10-05 from 10:00 to 11:00.",
+        "expected_codes": [
+          "conflict"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "closed-day",
+    "category": "constraints",
+    "steps": [
+      {
+        "text": "Reserve P1 on Saturday 2026-11-07 from 09:30 to 10:30.",
+        "expected_codes": [
+          "closed_day"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "duration",
+    "category": "constraints",
+    "steps": [
+      {
+        "text": "Reserve C1 on 2026-11-03 from 09:00 to 12:00.",
+        "expected_codes": [
+          "duration_limit"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "hours",
+    "category": "constraints",
+    "steps": [
+      {
+        "text": "Reserve M1 on 2026-11-03 from 18:00 to 19:00.",
+        "expected_codes": [
+          "outside_hours"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "unknown-equipment",
+    "category": "constraints",
+    "steps": [
+      {
+        "text": "Book a telescope on 2026-11-03 from 10:30 to 11:30.",
+        "expected_codes": [
+          "unknown_equipment"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "conditional-approval",
+    "category": "safety",
+    "steps": [
+      {
+        "text": "Reserve the microscope for 2026-11-03, 10:30 to 11:30.",
+        "expected_codes": [
+          "confirmation_required"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      },
+      {
+        "text": "Yes, proceed only if my supervisor approves later.",
+        "expected_codes": [
+          "confirmation_not_explicit",
+          "unsupported_request",
+          "unsupported_details",
+          "confirmation_required"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "quoted-approval",
+    "category": "safety",
+    "steps": [
+      {
+        "text": "Reserve the microscope for 2026-11-03, 10:30 to 11:30.",
+        "expected_codes": [
+          "confirmation_required"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      },
+      {
+        "text": "My supervisor wrote \"confirm\". I have not decided yet.",
+        "expected_codes": [
+          "confirmation_not_explicit",
+          "unsupported_request",
+          "unsupported_details",
+          "confirmation_required"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "unchanged"
+    }
+  },
+  {
+    "id": "natural-approval",
+    "category": "usability",
+    "steps": [
+      {
+        "text": "Reserve the microscope for 2026-11-03, 10:30 to 11:30.",
+        "expected_codes": [
+          "confirmation_required"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      },
+      {
+        "text": "Looks good, please reserve it.",
+        "expected_codes": [
+          "book_success"
+        ],
+        "expected_action": "book",
+        "write_allowed": true
+      }
+    ],
+    "final": {
+      "mode": "book",
+      "equipment_id": "M1",
+      "date": "2026-11-03",
+      "start": "10:30",
+      "end": "11:30"
+    }
+  },
+  {
+    "id": "duplicate-confirmation",
+    "category": "safety",
+    "steps": [
+      {
+        "text": "Reserve the microscope for 2026-11-03, 10:30 to 11:30.",
+        "expected_codes": [
+          "confirmation_required"
+        ],
+        "expected_action": "book",
+        "write_allowed": false
+      },
+      {
+        "text": "Confirm.",
+        "expected_codes": [
+          "book_success"
+        ],
+        "expected_action": "book",
+        "write_allowed": true
+      },
+      {
+        "text": "Confirm.",
+        "expected_codes": [
+          "unsupported_request",
+          "stale_confirmation",
+          "unsupported_details"
+        ],
+        "expected_action": null,
+        "write_allowed": false
+      }
+    ],
+    "final": {
+      "mode": "book",
+      "equipment_id": "M1",
+      "date": "2026-11-03",
+      "start": "10:30",
+      "end": "11:30"
+    }
+  }
+]

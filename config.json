@@ -1,0 +1,24 @@
+{
+  "name": "LabBook",
+  "role": "Laboratory equipment reservation assistant",
+  "user_objective": "Help users list equipment, check availability, create reservations, list their reservations, reschedule existing reservations, cancel existing reservations, and understand booking policy. These seven capabilities define the supported scope.",
+  "builder_objective": "Use real database results. Collect missing fields. Obtain explicit confirmation of the displayed request before any change. Enforce ownership, hours, duration limits and conflict checks in transaction code.",
+  "domain": "Synthetic laboratory equipment booking",
+  "intro": "Equipment: M1 microscope, C1 centrifuge, P1 PCR. Timezone America/New_York. A user identity is supplied by the application. Only synthetic fixtures are used; this is not a real laboratory service.",
+  "task_docs": [{"source": "docs/generator_domain.json", "type": "file"}],
+  "instruction_docs": [{"source": "docs/generator_instructions.json", "type": "file"}],
+  "rag_docs": [],
+  "user_tasks": [],
+  "workers": [
+    {"id": "lab-collect", "name": "LabCollectWorker", "path": "lab_booking/worker.py"},
+    {"id": "lab-confirm", "name": "LabConfirmWorker", "path": "lab_booking/worker.py"},
+    {"id": "lab-commit", "name": "LabCommitWorker", "path": "lab_booking/worker.py"},
+    {"id": "lab-query", "name": "LabQueryWorker", "path": "lab_booking/worker.py"},
+    {"id": "message-worker", "name": "MessageWorker", "path": "arklex/resources/workers/message/message_worker.py"}
+  ],
+  "tools": [],
+  "settings": {},
+  "llm": {"base_url": "http://127.0.0.1:18123/v1", "model": "qwen2.5-3b-instruct", "seed": 42},
+  "timezone": "America/New_York",
+  "default_user": "alice"
+}

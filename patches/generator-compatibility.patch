@@ -1,0 +1,25 @@
+--- a/arklex/orchestrator/generator/core/generator.py
++++ b/arklex/orchestrator/generator/core/generator.py
+@@ -40,10 +40,8 @@
+ from pathlib import Path
+ from typing import Any
+ 
+-from arklex.orchestrator.executor.executor import (
+-    BaseResourceInitializer,
+-    DefaultResourceInitializer,
+-)
++from arklex.resources.resource_loader import ResourceLoader as BaseResourceInitializer
++from arklex.resources.resource_loader import ResourceLoader as DefaultResourceInitializer
+ from arklex.orchestrator.generator.docs import DocumentLoader
+ from arklex.orchestrator.generator.formatting import TaskGraphFormatter
+ from arklex.orchestrator.generator.prompts import PromptManager
+--- a/arklex/orchestrator/generator/docs/document_loader.py
++++ b/arklex/orchestrator/generator/docs/document_loader.py
+@@ -149,6 +149,7 @@
+             FileNotFoundError: If the document file doesn't exist
+             ValueError: If the document structure is invalid
+         """
++        doc_path = Path(doc_path)
+         if str(doc_path) in self._cache:
+             document = self._cache[str(doc_path)]
+         else:

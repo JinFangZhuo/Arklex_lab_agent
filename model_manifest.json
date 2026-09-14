@@ -1,0 +1,13 @@
+{
+  "llama_release": "b10809",
+  "llama_url": "https://github.com/ggml-org/llama.cpp/releases/download/b10809/llama-b10809-bin-ubuntu-x64.tar.gz",
+  "llama_sha256": "5e34434ddc6d03cd1584f403201aff0d4bd1a5793a72ff7e286532dfd1e4b941",
+  "model_repo": "Qwen/Qwen2.5-3B-Instruct-GGUF",
+  "model_revision": "7dabda4d13d513e3e842b20f0d435c732f172cbe",
+  "model_url": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/7dabda4d13d513e3e842b20f0d435c732f172cbe/qwen2.5-3b-instruct-q4_k_m.gguf",
+  "model_sha256": "626b4a6678b86442240e33df819e00132d3ba7dddfe1cdc4fbb18e0a9615c62d",
+  "model_filename": "qwen2.5-3b-instruct-q4_k_m.gguf",
+  "llama_source_url": "https://codeload.github.com/ggml-org/llama.cpp/tar.gz/refs/tags/b10809",
+  "quantization": "Q4_K_M",
+  "llama_source_sha256": "097848e79245e784c3bd4fcf2d6e1b46ad24553f3840e65a678131825504a8d2"
+}

@@ -1,0 +1,2 @@
+# Blank context lines are meaningful in unified patches.
+*.patch -whitespace

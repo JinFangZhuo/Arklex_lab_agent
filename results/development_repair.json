@@ -1,0 +1,789 @@
+[
+  {
+    "user": "<start>",
+    "assistant": "Hello! I can list lab equipment, check availability, and manage your reservations. This is a synthetic lab; all times are America/New_York.",
+    "result": {
+      "ok": true,
+      "code": "welcome"
+    },
+    "events": [
+      {
+        "action": "",
+        "phase": "welcome",
+        "result": {
+          "ok": true,
+          "code": "welcome"
+        }
+      }
+    ],
+    "model_calls": [],
+    "routes": [
+      {
+        "from": "",
+        "to": "welcome",
+        "resource": {
+          "id": "lab-welcome"
+        },
+        "nlu_records": []
+      }
+    ],
+    "database_before": [
+      {
+        "id": "B0001",
+        "equipment_id": "M1",
+        "date": "2026-10-05",
+        "start": "10:00",
+        "end": "11:00",
+        "user_id": "bob",
+        "status": "active",
+        "request_id": "fixture-bob"
+      },
+      {
+        "id": "B0002",
+        "equipment_id": "C1",
+        "date": "2026-10-05",
+        "start": "13:00",
+        "end": "14:00",
+        "user_id": "alice",
+        "status": "active",
+        "request_id": "fixture-alice"
+      }
+    ],
+    "database_after": [
+      {
+        "id": "B0001",
+        "equipment_id": "M1",
+        "date": "2026-10-05",
+        "start": "10:00",
+        "end": "11:00",
+        "user_id": "bob",
+        "status": "active",
+        "request_id": "fixture-bob"
+      },
+      {
+        "id": "B0002",
+        "equipment_id": "C1",
+        "date": "2026-10-05",
+        "start": "13:00",
+        "end": "14:00",
+        "user_id": "alice",
+        "status": "active",
+        "request_id": "fixture-alice"
+      }
+    ]
+  },
+  {
+    "user": "Book P1.",
+    "assistant": "Please provide: date, start, end.",
+    "result": {
+      "ok": false,
+      "code": "missing_fields",
+      "message": "Please provide: date, start, end.",
+      "fields": [
+        "date",
+        "start",
+        "end"
+      ]
+    },
+    "events": [
+      {
+        "phase": "extract",
+        "command": {
+          "action": "book",
+          "equipment": "P1",
+          "date": null,
+          "start": null,
+          "end": null,
+          "booking_id": null
+        }
+      },
+      {
+        "action": "book",
+        "phase": "collect",
+        "result": {
+          "ok": false,
+          "code": "missing_fields",
+          "message": "Please provide: date, start, end.",
+          "fields": [
+            "date",
+            "start",
+            "end"
+          ]
+        }
+      }
+    ],
+    "model_calls": [
+      {
+        "purpose": "arklex_intent",
+        "model": "qwen2.5-3b-instruct",
+        "temperature": 0,
+        "seed": 42,
+        "ok": true,
+        "usage": {
+          "input_tokens": 329,
+          "output_tokens": 26,
+          "total_tokens": 355,
+          "input_token_details": {
+            "cache_read": 321
+          },
+          "output_token_details": {}
+        },
+        "content": "{\n  \"intent\": \"user wants to create a reservation for a specific piece of equipment\"\n}",
+        "latency_seconds": 0.2325819749967195
+      },
+      {
+        "purpose": "agent_command",
+        "model": "qwen2.5-3b-instruct",
+        "temperature": 0,
+        "seed": 42,
+        "ok": true,
+        "usage": {
+          "input_tokens": 1052,
+          "output_tokens": 35,
+          "total_tokens": 1087,
+          "input_token_details": {
+            "cache_read": 1044
+          },
+          "output_token_details": {}
+        },
+        "content": "{\"action\": \"book\", \"equipment\": \"P1\", \"date\": null, \"start\": null, \"end\": null, \"booking_id\": null}",
+        "latency_seconds": 0.1777781000128016
+      }
+    ],
+    "routes": [
+      {
+        "from": "welcome",
+        "to": "book.collect",
+        "resource": {
+          "id": "lab-collect"
+        },
+        "nlu_records": [
+          {
+            "candidate_intents": {
+              "user wants to list available laboratory equipment": [
+                {
+                  "intent": "user wants to list available laboratory equipment",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "User wants to list available laboratory equipment",
+                    "sample_utterances": []
+                  },
+                  "source_node": "welcome",
+                  "target_node": "list_equipment.query"
+                }
+              ],
+              "user wants to check the availability of specific equipment": [
+                {
+                  "intent": "user wants to check the availability of specific equipment",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "User wants to check the availability of specific equipment",
+                    "sample_utterances": []
+                  },
+                  "source_node": "welcome",
+                  "target_node": "availability.collect"
+                }
+              ],
+              "user wants to create a reservation for a specific piece of equipment": [
+                {
+                  "intent": "user wants to create a reservation for a specific piece of equipment",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "User wants to create a reservation for a specific equipment",
+                    "sample_utterances": []
+                  },
+                  "source_node": "welcome",
+                  "target_node": "book.collect"
+                }
+              ],
+              "user wants to list their own reservations": [
+                {
+                  "intent": "user wants to list their own reservations",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "User wants to list their own reservations",
+                    "sample_utterances": []
+                  },
+                  "source_node": "welcome",
+                  "target_node": "list_bookings.query"
+                }
+              ],
+              "user wants to reschedule an existing reservation": [
+                {
+                  "intent": "user wants to reschedule an existing reservation",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "User wants to reschedule an existing reservation",
+                    "sample_utterances": []
+                  },
+                  "source_node": "welcome",
+                  "target_node": "reschedule.collect"
+                }
+              ],
+              "user wants to cancel an existing reservation": [
+                {
+                  "intent": "user wants to cancel an existing reservation",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "User wants to cancel an existing reservation",
+                    "sample_utterances": []
+                  },
+                  "source_node": "welcome",
+                  "target_node": "cancel.collect"
+                }
+              ],
+              "user wants to understand the booking rules": [
+                {
+                  "intent": "user wants to understand the booking rules",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "User wants to understand the booking rules",
+                    "sample_utterances": []
+                  },
+                  "source_node": "welcome",
+                  "target_node": "policy.query"
+                }
+              ],
+              "others": [
+                {
+                  "intent": "others",
+                  "source_node": null,
+                  "target_node": null,
+                  "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                  }
+                }
+              ]
+            },
+            "pred_intent": "user wants to create a reservation for a specific piece of equipment",
+            "no_intent": false,
+            "global_intent": false
+          }
+        ]
+      }
+    ],
+    "database_before": [
+      {
+        "id": "B0001",
+        "equipment_id": "M1",
+        "date": "2026-10-05",
+        "start": "10:00",
+        "end": "11:00",
+        "user_id": "bob",
+        "status": "active",
+        "request_id": "fixture-bob"
+      },
+      {
+        "id": "B0002",
+        "equipment_id": "C1",
+        "date": "2026-10-05",
+        "start": "13:00",
+        "end": "14:00",
+        "user_id": "alice",
+        "status": "active",
+        "request_id": "fixture-alice"
+      }
+    ],
+    "database_after": [
+      {
+        "id": "B0001",
+        "equipment_id": "M1",
+        "date": "2026-10-05",
+        "start": "10:00",
+        "end": "11:00",
+        "user_id": "bob",
+        "status": "active",
+        "request_id": "fixture-bob"
+      },
+      {
+        "id": "B0002",
+        "equipment_id": "C1",
+        "date": "2026-10-05",
+        "start": "13:00",
+        "end": "14:00",
+        "user_id": "alice",
+        "status": "active",
+        "request_id": "fixture-alice"
+      }
+    ]
+  },
+  {
+    "user": "2026-10-08 from 13:30 to 14:30.",
+    "assistant": "Please confirm book: equipment=P1, date=2026-10-08, start=13:30, end=14:30 (America/New_York). Reply 'confirm' to proceed, 'never mind' to discard, or provide corrections. No change has been made yet.",
+    "result": {
+      "ok": true,
+      "code": "confirmation_required",
+      "request": {
+        "action": "book",
+        "arguments": {
+          "equipment": "P1",
+          "date": "2026-10-08",
+          "start": "13:30",
+          "end": "14:30"
+        },
+        "revision": 1,
+        "request_id": "737559ff01fc4b01b57594fb17684264"
+      }
+    },
+    "events": [
+      {
+        "phase": "extract",
+        "command": {
+          "action": "book",
+          "equipment": "P1",
+          "date": "2026-10-08",
+          "start": "13:30",
+          "end": "14:30",
+          "booking_id": null
+        }
+      },
+      {
+        "action": "book",
+        "phase": "collect",
+        "result": {
+          "ok": true,
+          "code": "validated"
+        }
+      },
+      {
+        "action": "book",
+        "phase": "confirm",
+        "result": {
+          "ok": true,
+          "code": "confirmation_required",
+          "request": {
+            "action": "book",
+            "arguments": {
+              "equipment": "P1",
+              "date": "2026-10-08",
+              "start": "13:30",
+              "end": "14:30"
+            },
+            "revision": 1,
+            "request_id": "737559ff01fc4b01b57594fb17684264"
+          }
+        }
+      }
+    ],
+    "model_calls": [
+      {
+        "purpose": "arklex_intent",
+        "model": "qwen2.5-3b-instruct",
+        "temperature": 0,
+        "seed": 42,
+        "ok": true,
+        "usage": {
+          "input_tokens": 368,
+          "output_tokens": 26,
+          "total_tokens": 394,
+          "input_token_details": {
+            "cache_read": 324
+          },
+          "output_token_details": {}
+        },
+        "content": "{\n  \"intent\": \"user wants to create a reservation for a specific piece of equipment\"\n}",
+        "latency_seconds": 0.22053803299786523
+      },
+      {
+        "purpose": "agent_command",
+        "model": "qwen2.5-3b-instruct",
+        "temperature": 0,
+        "seed": 42,
+        "ok": true,
+        "usage": {
+          "input_tokens": 1080,
+          "output_tokens": 55,
+          "total_tokens": 1135,
+          "input_token_details": {
+            "cache_read": 1030
+          },
+          "output_token_details": {}
+        },
+        "content": "{\"action\": \"book\", \"equipment\": \"P1\", \"date\": \"2026-10-08\", \"start\": \"13:30\", \"end\": \"14:30\", \"booking_id\": null}",
+        "latency_seconds": 0.2749530129949562
+      }
+    ],
+    "routes": [
+      {
+        "from": "book.collect",
+        "to": "book.collect",
+        "resource": {
+          "id": "lab-collect"
+        },
+        "nlu_records": [
+          {
+            "candidate_intents": {
+              "user wants to list available laboratory equipment": [
+                {
+                  "intent": "user wants to list available laboratory equipment",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "User wants to list available laboratory equipment",
+                    "sample_utterances": []
+                  },
+                  "source_node": "welcome",
+                  "target_node": "list_equipment.query"
+                }
+              ],
+              "user wants to check the availability of specific equipment": [
+                {
+                  "intent": "user wants to check the availability of specific equipment",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "User wants to check the availability of specific equipment",
+                    "sample_utterances": []
+                  },
+                  "source_node": "welcome",
+                  "target_node": "availability.collect"
+                }
+              ],
+              "user wants to create a reservation for a specific piece of equipment": [
+                {
+                  "intent": "user wants to create a reservation for a specific piece of equipment",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "User wants to create a reservation for a specific equipment",
+                    "sample_utterances": []
+                  },
+                  "source_node": "welcome",
+                  "target_node": "book.collect"
+                }
+              ],
+              "user wants to list their own reservations": [
+                {
+                  "intent": "user wants to list their own reservations",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "User wants to list their own reservations",
+                    "sample_utterances": []
+                  },
+                  "source_node": "welcome",
+                  "target_node": "list_bookings.query"
+                }
+              ],
+              "user wants to reschedule an existing reservation": [
+                {
+                  "intent": "user wants to reschedule an existing reservation",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "User wants to reschedule an existing reservation",
+                    "sample_utterances": []
+                  },
+                  "source_node": "welcome",
+                  "target_node": "reschedule.collect"
+                }
+              ],
+              "user wants to cancel an existing reservation": [
+                {
+                  "intent": "user wants to cancel an existing reservation",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "User wants to cancel an existing reservation",
+                    "sample_utterances": []
+                  },
+                  "source_node": "welcome",
+                  "target_node": "cancel.collect"
+                }
+              ],
+              "user wants to understand the booking rules": [
+                {
+                  "intent": "user wants to understand the booking rules",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "User wants to understand the booking rules",
+                    "sample_utterances": []
+                  },
+                  "source_node": "welcome",
+                  "target_node": "policy.query"
+                }
+              ],
+              "others": [
+                {
+                  "intent": "others",
+                  "source_node": null,
+                  "target_node": null,
+                  "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                  }
+                }
+              ]
+            },
+            "pred_intent": "user wants to create a reservation for a specific piece of equipment",
+            "no_intent": false,
+            "global_intent": true
+          }
+        ]
+      },
+      {
+        "from": "book.collect",
+        "to": "book.confirm",
+        "resource": {
+          "id": "lab-confirm"
+        },
+        "nlu_records": [
+          {
+            "candidate_intents": [],
+            "pred_intent": "",
+            "no_intent": true,
+            "global_intent": false
+          }
+        ]
+      }
+    ],
+    "database_before": [
+      {
+        "id": "B0001",
+        "equipment_id": "M1",
+        "date": "2026-10-05",
+        "start": "10:00",
+        "end": "11:00",
+        "user_id": "bob",
+        "status": "active",
+        "request_id": "fixture-bob"
+      },
+      {
+        "id": "B0002",
+        "equipment_id": "C1",
+        "date": "2026-10-05",
+        "start": "13:00",
+        "end": "14:00",
+        "user_id": "alice",
+        "status": "active",
+        "request_id": "fixture-alice"
+      }
+    ],
+    "database_after": [
+      {
+        "id": "B0001",
+        "equipment_id": "M1",
+        "date": "2026-10-05",
+        "start": "10:00",
+        "end": "11:00",
+        "user_id": "bob",
+        "status": "active",
+        "request_id": "fixture-bob"
+      },
+      {
+        "id": "B0002",
+        "equipment_id": "C1",
+        "date": "2026-10-05",
+        "start": "13:00",
+        "end": "14:00",
+        "user_id": "alice",
+        "status": "active",
+        "request_id": "fixture-alice"
+      }
+    ]
+  },
+  {
+    "user": "Confirm.",
+    "assistant": "Booked: BE02903EBFB, P1, 2026-10-08 13:30\u201314:30 America/New_York. Status: active.",
+    "result": {
+      "ok": true,
+      "code": "book_success",
+      "booking": {
+        "id": "BE02903EBFB",
+        "equipment_id": "P1",
+        "date": "2026-10-08",
+        "start": "13:30",
+        "end": "14:30",
+        "user_id": "alice",
+        "status": "active",
+        "request_id": "737559ff01fc4b01b57594fb17684264"
+      }
+    },
+    "events": [
+      {
+        "action": "book",
+        "phase": "commit",
+        "result": {
+          "ok": true,
+          "code": "book_success",
+          "booking": {
+            "id": "BE02903EBFB",
+            "equipment_id": "P1",
+            "date": "2026-10-08",
+            "start": "13:30",
+            "end": "14:30",
+            "user_id": "alice",
+            "status": "active",
+            "request_id": "737559ff01fc4b01b57594fb17684264"
+          }
+        }
+      }
+    ],
+    "model_calls": [
+      {
+        "purpose": "arklex_intent",
+        "model": "qwen2.5-3b-instruct",
+        "temperature": 0,
+        "seed": 42,
+        "ok": true,
+        "usage": {
+          "input_tokens": 390,
+          "output_tokens": 17,
+          "total_tokens": 407,
+          "input_token_details": {
+            "cache_read": 269
+          },
+          "output_token_details": {}
+        },
+        "content": "{\n  \"intent\": \"approve the displayed request\"\n}",
+        "latency_seconds": 0.15428889699978754
+      }
+    ],
+    "routes": [
+      {
+        "from": "book.confirm",
+        "to": "book.commit",
+        "resource": {
+          "id": "lab-commit"
+        },
+        "nlu_records": [
+          {
+            "candidate_intents": {
+              "approve the displayed request": [
+                {
+                  "intent": "approve the displayed request",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "User unconditionally approves exactly the previously displayed request, without changing fields or adding conditions.",
+                    "sample_utterances": [
+                      "Confirm.",
+                      "Yes, go ahead."
+                    ]
+                  },
+                  "source_node": "book.confirm",
+                  "target_node": "book.commit"
+                }
+              ],
+              "correct the pending request": [
+                {
+                  "intent": "correct the pending request",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "User supplies or changes equipment, date, time, duration or booking ID for this pending request; an affirmative with corrections belongs here.",
+                    "sample_utterances": [
+                      "Use 15:30 to 16:30 instead.",
+                      "Yes, but change the date."
+                    ]
+                  },
+                  "source_node": "book.confirm",
+                  "target_node": "book.collect"
+                }
+              ],
+              "abandon the pending request": [
+                {
+                  "intent": "abandon the pending request",
+                  "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "User declines or abandons this pending change. This is not a request to cancel an existing booking.",
+                    "sample_utterances": [
+                      "Never mind.",
+                      "Do not proceed."
+                    ]
+                  },
+                  "source_node": "book.confirm",
+                  "target_node": "book.discard"
+                }
+              ],
+              "others": [
+                {
+                  "intent": "others",
+                  "source_node": null,
+                  "target_node": null,
+                  "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                  }
+                }
+              ]
+            },
+            "pred_intent": "approve the displayed request",
+            "no_intent": false,
+            "global_intent": false
+          }
+        ]
+      }
+    ],
+    "database_before": [
+      {
+        "id": "B0001",
+        "equipment_id": "M1",
+        "date": "2026-10-05",
+        "start": "10:00",
+        "end": "11:00",
+        "user_id": "bob",
+        "status": "active",
+        "request_id": "fixture-bob"
+      },
+      {
+        "id": "B0002",
+        "equipment_id": "C1",
+        "date": "2026-10-05",
+        "start": "13:00",
+        "end": "14:00",
+        "user_id": "alice",
+        "status": "active",
+        "request_id": "fixture-alice"
+      }
+    ],
+    "database_after": [
+      {
+        "id": "B0001",
+        "equipment_id": "M1",
+        "date": "2026-10-05",
+        "start": "10:00",
+        "end": "11:00",
+        "user_id": "bob",
+        "status": "active",
+        "request_id": "fixture-bob"
+      },
+      {
+        "id": "B0002",
+        "equipment_id": "C1",
+        "date": "2026-10-05",
+        "start": "13:00",
+        "end": "14:00",
+        "user_id": "alice",
+        "status": "active",
+        "request_id": "fixture-alice"
+      },
+      {
+        "id": "BE02903EBFB",
+        "equipment_id": "P1",
+        "date": "2026-10-08",
+        "start": "13:30",
+        "end": "14:30",
+        "user_id": "alice",
+        "status": "active",
+        "request_id": "737559ff01fc4b01b57594fb17684264"
+      }
+    ]
+  }
+]

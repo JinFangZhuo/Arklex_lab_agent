@@ -1,0 +1,1260 @@
+{
+  "nodes": [
+    [
+      "0",
+      {
+        "resource": {
+          "id": "message-worker",
+          "name": "MessageWorker"
+        },
+        "attribute": {
+          "value": "Hello! I'm here to assist you with any customer service inquiries.",
+          "task": "start message",
+          "directed": false
+        },
+        "limit": 1,
+        "type": "start"
+      }
+    ],
+    [
+      "1",
+      {
+        "resource": {
+          "id": "message-worker",
+          "name": "MessageWorker"
+        },
+        "attribute": {
+          "value": "User wants to list available laboratory equipment",
+          "task": "List available laboratory equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "2",
+      {
+        "resource": {
+          "id": "lab-collect",
+          "name": "LabCollectWorker"
+        },
+        "attribute": {
+          "value": "List available laboratory equipment",
+          "task": "List available laboratory equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "3",
+      {
+        "resource": {
+          "id": "lab-confirm",
+          "name": "LabConfirmWorker"
+        },
+        "attribute": {
+          "value": "Retrieve and display a list of available equipment, including equipment name, model, and availability status.",
+          "task": "List available laboratory equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "4",
+      {
+        "resource": {
+          "id": "lab-commit",
+          "name": "LabCommitWorker"
+        },
+        "attribute": {
+          "value": "Ask if the user needs more details or has any specific equipment in mind.",
+          "task": "List available laboratory equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "5",
+      {
+        "resource": {
+          "id": "lab-query",
+          "name": "LabQueryWorker"
+        },
+        "attribute": {
+          "value": "Confirm the user's selection and provide additional information if needed.",
+          "task": "List available laboratory equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "6",
+      {
+        "resource": {
+          "id": "message-worker",
+          "name": "MessageWorker"
+        },
+        "attribute": {
+          "value": "End the interaction, thanking the user for their interest and providing a way to proceed with the next task.",
+          "task": "List available laboratory equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "7",
+      {
+        "resource": {
+          "id": "message-worker",
+          "name": "MessageWorker"
+        },
+        "attribute": {
+          "value": "User wants to check the availability of specific equipment",
+          "task": "Check availability of specific equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "8",
+      {
+        "resource": {
+          "id": "lab-collect",
+          "name": "LabCollectWorker"
+        },
+        "attribute": {
+          "value": "Execute: Execute Check availability of specific equipment",
+          "task": "Check availability of specific equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "9",
+      {
+        "resource": {
+          "id": "message-worker",
+          "name": "MessageWorker"
+        },
+        "attribute": {
+          "value": "User wants to create a reservation for a specific equipment",
+          "task": "Create a reservation for a specific equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "10",
+      {
+        "resource": {
+          "id": "lab-collect",
+          "name": "LabCollectWorker"
+        },
+        "attribute": {
+          "value": "Retrieve the information about the equipment and ask the user which equipment they would like to reserve.",
+          "task": "Create a reservation for a specific equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "11",
+      {
+        "resource": {
+          "id": "lab-confirm",
+          "name": "LabConfirmWorker"
+        },
+        "attribute": {
+          "value": "Check the availability of the selected equipment and confirm the availability with the user.",
+          "task": "Create a reservation for a specific equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "12",
+      {
+        "resource": {
+          "id": "lab-commit",
+          "name": "LabCommitWorker"
+        },
+        "attribute": {
+          "value": "Ask the user for the reservation date and time, and confirm the details with the user.",
+          "task": "Create a reservation for a specific equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "13",
+      {
+        "resource": {
+          "id": "lab-query",
+          "name": "LabQueryWorker"
+        },
+        "attribute": {
+          "value": "Create the reservation and confirm the details with the user.",
+          "task": "Create a reservation for a specific equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "14",
+      {
+        "resource": {
+          "id": "message-worker",
+          "name": "MessageWorker"
+        },
+        "attribute": {
+          "value": "Ask the user if they would like to proceed with the reservation or if they need more information.",
+          "task": "Create a reservation for a specific equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "15",
+      {
+        "resource": {
+          "id": "lab-collect",
+          "name": "LabCollectWorker"
+        },
+        "attribute": {
+          "value": "Confirm the user's selection and provide additional information if needed.",
+          "task": "Create a reservation for a specific equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "16",
+      {
+        "resource": {
+          "id": "lab-confirm",
+          "name": "LabConfirmWorker"
+        },
+        "attribute": {
+          "value": "Notify the user of the successful reservation and provide instructions for next steps.",
+          "task": "Create a reservation for a specific equipment",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "17",
+      {
+        "resource": {
+          "id": "message-worker",
+          "name": "MessageWorker"
+        },
+        "attribute": {
+          "value": "User wants to list their own reservations",
+          "task": "List own reservations",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "18",
+      {
+        "resource": {
+          "id": "lab-collect",
+          "name": "LabCollectWorker"
+        },
+        "attribute": {
+          "value": "Execute: Execute List own reservations",
+          "task": "List own reservations",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "19",
+      {
+        "resource": {
+          "id": "message-worker",
+          "name": "MessageWorker"
+        },
+        "attribute": {
+          "value": "User wants to reschedule an existing reservation",
+          "task": "Reschedule an existing reservation",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "20",
+      {
+        "resource": {
+          "id": "lab-collect",
+          "name": "LabCollectWorker"
+        },
+        "attribute": {
+          "value": "Retrieve the information about the user's reservations and inquire about the reservation they want to reschedule.",
+          "task": "Reschedule an existing reservation",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "21",
+      {
+        "resource": {
+          "id": "lab-confirm",
+          "name": "LabConfirmWorker"
+        },
+        "attribute": {
+          "value": "Display a list of the user's reservations.",
+          "task": "Reschedule an existing reservation",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "22",
+      {
+        "resource": {
+          "id": "lab-commit",
+          "name": "LabCommitWorker"
+        },
+        "attribute": {
+          "value": "Inquire which reservation the user wants to reschedule.",
+          "task": "Reschedule an existing reservation",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "23",
+      {
+        "resource": {
+          "id": "lab-query",
+          "name": "LabQueryWorker"
+        },
+        "attribute": {
+          "value": "Confirm the user's selection of the reservation to reschedule.",
+          "task": "Reschedule an existing reservation",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "24",
+      {
+        "resource": {
+          "id": "message-worker",
+          "name": "MessageWorker"
+        },
+        "attribute": {
+          "value": "Inquire about the new date and time for the reservation.",
+          "task": "Reschedule an existing reservation",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "25",
+      {
+        "resource": {
+          "id": "lab-collect",
+          "name": "LabCollectWorker"
+        },
+        "attribute": {
+          "value": "Confirm the user's new date and time for the reservation.",
+          "task": "Reschedule an existing reservation",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "26",
+      {
+        "resource": {
+          "id": "lab-confirm",
+          "name": "LabConfirmWorker"
+        },
+        "attribute": {
+          "value": "Commit the rescheduled reservation.",
+          "task": "Reschedule an existing reservation",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "27",
+      {
+        "resource": {
+          "id": "lab-commit",
+          "name": "LabCommitWorker"
+        },
+        "attribute": {
+          "value": "Provide a confirmation message and ask if the user needs help with anything else.",
+          "task": "Reschedule an existing reservation",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "28",
+      {
+        "resource": {
+          "id": "message-worker",
+          "name": "MessageWorker"
+        },
+        "attribute": {
+          "value": "User wants to cancel an existing reservation",
+          "task": "Cancel an existing reservation",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "29",
+      {
+        "resource": {
+          "id": "lab-collect",
+          "name": "LabCollectWorker"
+        },
+        "attribute": {
+          "value": "Execute: Execute Cancel an existing reservation",
+          "task": "Cancel an existing reservation",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "30",
+      {
+        "resource": {
+          "id": "message-worker",
+          "name": "MessageWorker"
+        },
+        "attribute": {
+          "value": "User wants to understand the booking rules",
+          "task": "Understand booking rules",
+          "directed": false
+        }
+      }
+    ],
+    [
+      "31",
+      {
+        "resource": {
+          "id": "lab-collect",
+          "name": "LabCollectWorker"
+        },
+        "attribute": {
+          "value": "Execute: Execute Understand booking rules",
+          "task": "Understand booking rules",
+          "directed": false
+        }
+      }
+    ]
+  ],
+  "edges": [
+    [
+      "0",
+      "1",
+      {
+        "intent": "User wants to list available laboratory equipment",
+        "attribute": {
+          "weight": 1,
+          "pred": true,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "0",
+      "7",
+      {
+        "intent": "User wants to check the availability of specific equipment",
+        "attribute": {
+          "weight": 1,
+          "pred": true,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "0",
+      "9",
+      {
+        "intent": "User wants to create a reservation for a specific piece of equipment",
+        "attribute": {
+          "weight": 1,
+          "pred": true,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "0",
+      "17",
+      {
+        "intent": "User wants to list their own reservations",
+        "attribute": {
+          "weight": 1,
+          "pred": true,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "0",
+      "19",
+      {
+        "intent": "User wants to reschedule an existing reservation",
+        "attribute": {
+          "weight": 1,
+          "pred": true,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "0",
+      "28",
+      {
+        "intent": "User wants to cancel an existing reservation",
+        "attribute": {
+          "weight": 1,
+          "pred": true,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "0",
+      "30",
+      {
+        "intent": "User wants to understand the booking rules",
+        "attribute": {
+          "weight": 1,
+          "pred": true,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "1",
+      "2",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "2",
+      "3",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "3",
+      "4",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "4",
+      "5",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "5",
+      "6",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "7",
+      "8",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "9",
+      "10",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "10",
+      "11",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "11",
+      "12",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "12",
+      "13",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "13",
+      "14",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "14",
+      "15",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "15",
+      "16",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "17",
+      "18",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "19",
+      "20",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "20",
+      "21",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "21",
+      "22",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "22",
+      "23",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "23",
+      "24",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "24",
+      "25",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "25",
+      "26",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "26",
+      "27",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "28",
+      "29",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "30",
+      "31",
+      {
+        "intent": null,
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ]
+  ],
+  "tasks": [
+    {
+      "id": "task_1",
+      "name": "List available laboratory equipment",
+      "description": "User wants to list available laboratory equipment",
+      "steps": [
+        {
+          "task": "List available laboratory equipment",
+          "description": "List available laboratory equipment",
+          "step_id": "step_1",
+          "required_fields": [],
+          "resource": {
+            "name": "LabCollectWorker",
+            "description": "LabCollectWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Retrieve and display a list of available equipment, including equipment name, model, and availability status.",
+          "description": "Retrieve and display a list of available equipment, including equipment name, model, and availability status.",
+          "step_id": "step_2",
+          "required_fields": [],
+          "resource": {
+            "name": "LabConfirmWorker",
+            "description": "LabConfirmWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Ask if the user needs more details or has any specific equipment in mind.",
+          "description": "Ask if the user needs more details or has any specific equipment in mind.",
+          "step_id": "step_3",
+          "required_fields": [],
+          "resource": {
+            "name": "LabCommitWorker",
+            "description": "LabCommitWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Confirm the user's selection and provide additional information if needed.",
+          "description": "Confirm the user's selection and provide additional information if needed.",
+          "step_id": "step_4",
+          "required_fields": [],
+          "resource": {
+            "name": "LabQueryWorker",
+            "description": "LabQueryWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "End the interaction, thanking the user for their interest and providing a way to proceed with the next task.",
+          "description": "End the interaction, thanking the user for their interest and providing a way to proceed with the next task.",
+          "step_id": "step_5",
+          "required_fields": [],
+          "resource": {
+            "name": "MessageWorker",
+            "description": "MessageWorker worker",
+            "type": "worker"
+          }
+        }
+      ],
+      "dependencies": [],
+      "required_resources": [],
+      "estimated_duration": "1 hour",
+      "priority": 3,
+      "intent": "User wants to list available laboratory equipment",
+      "level": 0
+    },
+    {
+      "id": "task_2",
+      "name": "Check availability of specific equipment",
+      "description": "User wants to check the availability of specific equipment",
+      "steps": [
+        {
+          "task": "Execute: Execute Check availability of specific equipment",
+          "description": "Execute: Execute Check availability of specific equipment",
+          "step_id": "step_1",
+          "required_fields": [],
+          "resource": {
+            "name": "LabCollectWorker",
+            "description": "LabCollectWorker worker",
+            "type": "worker"
+          }
+        }
+      ],
+      "dependencies": [],
+      "required_resources": [],
+      "estimated_duration": "1 hour",
+      "priority": 3,
+      "intent": "User wants to check the availability of specific equipment",
+      "level": 0
+    },
+    {
+      "id": "task_3",
+      "name": "Create a reservation for a specific equipment",
+      "description": "User wants to create a reservation for a specific equipment",
+      "steps": [
+        {
+          "task": "Retrieve the information about the equipment and ask the user which equipment they would like to reserve.",
+          "description": "Retrieve the information about the equipment and ask the user which equipment they would like to reserve.",
+          "step_id": "step_1",
+          "required_fields": [],
+          "resource": {
+            "name": "LabCollectWorker",
+            "description": "LabCollectWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Check the availability of the selected equipment and confirm the availability with the user.",
+          "description": "Check the availability of the selected equipment and confirm the availability with the user.",
+          "step_id": "step_2",
+          "required_fields": [],
+          "resource": {
+            "name": "LabConfirmWorker",
+            "description": "LabConfirmWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Ask the user for the reservation date and time, and confirm the details with the user.",
+          "description": "Ask the user for the reservation date and time, and confirm the details with the user.",
+          "step_id": "step_3",
+          "required_fields": [],
+          "resource": {
+            "name": "LabCommitWorker",
+            "description": "LabCommitWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Create the reservation and confirm the details with the user.",
+          "description": "Create the reservation and confirm the details with the user.",
+          "step_id": "step_4",
+          "required_fields": [],
+          "resource": {
+            "name": "LabQueryWorker",
+            "description": "LabQueryWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Ask the user if they would like to proceed with the reservation or if they need more information.",
+          "description": "Ask the user if they would like to proceed with the reservation or if they need more information.",
+          "step_id": "step_5",
+          "required_fields": [],
+          "resource": {
+            "name": "MessageWorker",
+            "description": "MessageWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Confirm the user's selection and provide additional information if needed.",
+          "description": "Confirm the user's selection and provide additional information if needed.",
+          "step_id": "step_6",
+          "required_fields": [],
+          "resource": {
+            "name": "LabCollectWorker",
+            "description": "LabCollectWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Notify the user of the successful reservation and provide instructions for next steps.",
+          "description": "Notify the user of the successful reservation and provide instructions for next steps.",
+          "step_id": "step_7",
+          "required_fields": [],
+          "resource": {
+            "name": "LabConfirmWorker",
+            "description": "LabConfirmWorker worker",
+            "type": "worker"
+          }
+        }
+      ],
+      "dependencies": [],
+      "required_resources": [],
+      "estimated_duration": "1 hour",
+      "priority": 3,
+      "intent": "User wants to create a reservation for a specific piece of equipment",
+      "level": 0
+    },
+    {
+      "id": "task_4",
+      "name": "List own reservations",
+      "description": "User wants to list their own reservations",
+      "steps": [
+        {
+          "task": "Execute: Execute List own reservations",
+          "description": "Execute: Execute List own reservations",
+          "step_id": "step_1",
+          "required_fields": [],
+          "resource": {
+            "name": "LabCollectWorker",
+            "description": "LabCollectWorker worker",
+            "type": "worker"
+          }
+        }
+      ],
+      "dependencies": [],
+      "required_resources": [],
+      "estimated_duration": "1 hour",
+      "priority": 3,
+      "intent": "User wants to list their own reservations",
+      "level": 0
+    },
+    {
+      "id": "task_5",
+      "name": "Reschedule an existing reservation",
+      "description": "User wants to reschedule an existing reservation",
+      "steps": [
+        {
+          "task": "Retrieve the information about the user's reservations and inquire about the reservation they want to reschedule.",
+          "description": "Retrieve the information about the user's reservations and inquire about the reservation they want to reschedule.",
+          "step_id": "step_1",
+          "required_fields": [],
+          "resource": {
+            "name": "LabCollectWorker",
+            "description": "LabCollectWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Display a list of the user's reservations.",
+          "description": "Display a list of the user's reservations.",
+          "step_id": "step_2",
+          "required_fields": [],
+          "resource": {
+            "name": "LabConfirmWorker",
+            "description": "LabConfirmWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Inquire which reservation the user wants to reschedule.",
+          "description": "Inquire which reservation the user wants to reschedule.",
+          "step_id": "step_3",
+          "required_fields": [],
+          "resource": {
+            "name": "LabCommitWorker",
+            "description": "LabCommitWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Confirm the user's selection of the reservation to reschedule.",
+          "description": "Confirm the user's selection of the reservation to reschedule.",
+          "step_id": "step_4",
+          "required_fields": [],
+          "resource": {
+            "name": "LabQueryWorker",
+            "description": "LabQueryWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Inquire about the new date and time for the reservation.",
+          "description": "Inquire about the new date and time for the reservation.",
+          "step_id": "step_5",
+          "required_fields": [],
+          "resource": {
+            "name": "MessageWorker",
+            "description": "MessageWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Confirm the user's new date and time for the reservation.",
+          "description": "Confirm the user's new date and time for the reservation.",
+          "step_id": "step_6",
+          "required_fields": [],
+          "resource": {
+            "name": "LabCollectWorker",
+            "description": "LabCollectWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Commit the rescheduled reservation.",
+          "description": "Commit the rescheduled reservation.",
+          "step_id": "step_7",
+          "required_fields": [],
+          "resource": {
+            "name": "LabConfirmWorker",
+            "description": "LabConfirmWorker worker",
+            "type": "worker"
+          }
+        },
+        {
+          "task": "Provide a confirmation message and ask if the user needs help with anything else.",
+          "description": "Provide a confirmation message and ask if the user needs help with anything else.",
+          "step_id": "step_8",
+          "required_fields": [],
+          "resource": {
+            "name": "LabCommitWorker",
+            "description": "LabCommitWorker worker",
+            "type": "worker"
+          }
+        }
+      ],
+      "dependencies": [],
+      "required_resources": [],
+      "estimated_duration": "1 hour",
+      "priority": 3,
+      "intent": "User wants to reschedule an existing reservation",
+      "level": 0
+    },
+    {
+      "id": "task_6",
+      "name": "Cancel an existing reservation",
+      "description": "User wants to cancel an existing reservation",
+      "steps": [
+        {
+          "task": "Execute: Execute Cancel an existing reservation",
+          "description": "Execute: Execute Cancel an existing reservation",
+          "step_id": "step_1",
+          "required_fields": [],
+          "resource": {
+            "name": "LabCollectWorker",
+            "description": "LabCollectWorker worker",
+            "type": "worker"
+          }
+        }
+      ],
+      "dependencies": [],
+      "required_resources": [],
+      "estimated_duration": "1 hour",
+      "priority": 3,
+      "intent": "User wants to cancel an existing reservation",
+      "level": 0
+    },
+    {
+      "id": "task_7",
+      "name": "Understand booking rules",
+      "description": "User wants to understand the booking rules",
+      "steps": [
+        {
+          "task": "Execute: Execute Understand booking rules",
+          "description": "Execute: Execute Understand booking rules",
+          "step_id": "step_1",
+          "required_fields": [],
+          "resource": {
+            "name": "LabCollectWorker",
+            "description": "LabCollectWorker worker",
+            "type": "worker"
+          }
+        }
+      ],
+      "dependencies": [],
+      "required_resources": [],
+      "estimated_duration": "1 hour",
+      "priority": 3,
+      "intent": "User wants to understand the booking rules",
+      "level": 0
+    }
+  ],
+  "role": "Laboratory equipment reservation assistant",
+  "user_objective": "Help users list equipment, check availability, create reservations, list their reservations, reschedule existing reservations, cancel existing reservations, and understand booking policy. These seven capabilities define the supported scope.",
+  "builder_objective": "Use real database results. Collect missing fields. Obtain explicit confirmation of the displayed request before any change. Enforce ownership, hours, duration limits and conflict checks in transaction code.",
+  "domain": "Synthetic laboratory equipment booking",
+  "intro": "Equipment: M1 microscope, C1 centrifuge, P1 PCR. Timezone America/New_York. A user identity is supplied by the application. Only synthetic fixtures are used; this is not a real laboratory service.",
+  "task_docs": [
+    {
+      "source": "docs/generator_domain.json",
+      "type": "file"
+    }
+  ],
+  "rag_docs": [],
+  "workers": [
+    {
+      "id": "lab-collect",
+      "name": "LabCollectWorker",
+      "path": "lab_booking/worker.py"
+    },
+    {
+      "id": "lab-confirm",
+      "name": "LabConfirmWorker",
+      "path": "lab_booking/worker.py"
+    },
+    {
+      "id": "lab-commit",
+      "name": "LabCommitWorker",
+      "path": "lab_booking/worker.py"
+    },
+    {
+      "id": "lab-query",
+      "name": "LabQueryWorker",
+      "path": "lab_booking/worker.py"
+    },
+    {
+      "id": "message-worker",
+      "name": "MessageWorker",
+      "path": "arklex/resources/workers/message/message_worker.py"
+    }
+  ],
+  "tools": [],
+  "nluapi": "",
+  "slotfillapi": "",
+  "reusable_tasks": {},
+  "settings": {}
+}

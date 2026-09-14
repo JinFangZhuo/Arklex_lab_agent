@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arklex-labbook-research"
+version = "0.2.0"
+description = "A reproducible Arklex equipment-booking agent and study of dialogue routing versus action authorization"
+requires-python = ">=3.12"
+dependencies = [
+  "arklex @ https://github.com/arklexai/Agent-First-Organization/archive/ea22ff3e0c44b613408e688a3044209a64db35a9.tar.gz",
+  "langgraph>=1.2,<2",
+  "google-api-python-client>=2,<3",
+]
+
+[tool.setuptools]
+packages = ["lab_booking"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

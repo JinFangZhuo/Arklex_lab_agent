@@ -1,0 +1,10 @@
+{
+  "description": "Metadata-only publication edits after the recorded evaluation. Original run hashes are retained in results/frozen-v1/summary.json.",
+  "files": {
+    "lab_booking/compile_graph.py": {
+      "recorded_sha256": "a8f8f27825a5ff5db9bb7f3a6e0a37a8cb6bc5b3f6f45f9165b7b000bf84db07",
+      "published_sha256": "567a5d97198e871847a06b369e63e3544d60ec843b6614a70cc5f62fb2456976",
+      "change": "Shortened the reviewer attribution label in generated review metadata. Graph construction and runtime behavior are unchanged."
+    }
+  }
+}

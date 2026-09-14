@@ -1,0 +1,10 @@
+[
+  {"id":"direct-booker","goal":"Reserve M1 on 2026-11-10 from 09:30 to 10:30. Confirm only the correct details.","style":"Direct and concise; give all details initially.","final":{"mode":"book","equipment_id":"M1","date":"2026-11-10","start":"09:30","end":"10:30"}},
+  {"id":"incremental-booker","goal":"Reserve C1 on 2026-11-11 from 13:00 to 14:00. Confirm the correct proposal.","style":"Initially mention only the equipment; supply remaining details when asked.","final":{"mode":"book","equipment_id":"C1","date":"2026-11-11","start":"13:00","end":"14:00"}},
+  {"id":"colloquial-booker","goal":"Reserve P1 on 2026-11-12 from 14:30 to 15:30.","style":"Casual English; say PCR machine and use am/pm times.","final":{"mode":"book","equipment_id":"P1","date":"2026-11-12","start":"14:30","end":"15:30"}},
+  {"id":"careful-booker","goal":"Reserve M1 on 2026-11-13 from 11:00 to 12:00.","style":"First ask about opening hours, then request the booking and explicitly confirm.","final":{"mode":"book","equipment_id":"M1","date":"2026-11-13","start":"11:00","end":"12:00"}},
+  {"id":"direct-canceller","goal":"Cancel your existing booking B0002. Confirm when its cancellation is displayed.","style":"Direct, short messages.","final":{"mode":"cancel","booking_id":"B0002"}},
+  {"id":"careful-canceller","goal":"Cancel your existing booking B0002.","style":"First ask to see your current bookings, then cancel B0002 and confirm.","final":{"mode":"cancel","booking_id":"B0002"}},
+  {"id":"direct-rescheduler","goal":"Move your booking B0002 to 2026-11-10 from 15:00 to 16:00. Confirm the correct proposal.","style":"Give all details initially and use explicit confirmation.","final":{"mode":"reschedule","booking_id":"B0002","date":"2026-11-10","start":"15:00","end":"16:00"}},
+  {"id":"incremental-rescheduler","goal":"Move your booking B0002 to 2026-11-12 from 10:00 to 11:00.","style":"First say you want to move B0002. Supply date and time when asked, then confirm.","final":{"mode":"reschedule","booking_id":"B0002","date":"2026-11-12","start":"10:00","end":"11:00"}}
+]

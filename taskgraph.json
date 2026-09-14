@@ -1,0 +1,628 @@
+{
+  "name": "LabBook",
+  "nodes": [
+    [
+      "agent",
+      {
+        "resource": {
+          "id": "nlu-agent"
+        },
+        "attribute": {
+          "start": true,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "",
+          "phase": "",
+          "prompt": "Laboratory equipment reservations. Use the user's latest request and verified database results.",
+          "language": "EN",
+          "response_length": 350
+        }
+      }
+    ],
+    [
+      "welcome",
+      {
+        "resource": {
+          "id": "lab-welcome"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "",
+          "phase": "welcome"
+        }
+      }
+    ],
+    [
+      "list_equipment.query",
+      {
+        "resource": {
+          "id": "lab-query"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "list_equipment",
+          "phase": "query"
+        }
+      }
+    ],
+    [
+      "availability.collect",
+      {
+        "resource": {
+          "id": "lab-query"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "availability",
+          "phase": "query"
+        }
+      }
+    ],
+    [
+      "book.collect",
+      {
+        "resource": {
+          "id": "lab-collect"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "book",
+          "phase": "collect"
+        }
+      }
+    ],
+    [
+      "book.confirm",
+      {
+        "resource": {
+          "id": "lab-confirm"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "book",
+          "phase": "confirm"
+        }
+      }
+    ],
+    [
+      "book.commit",
+      {
+        "resource": {
+          "id": "lab-commit"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "book",
+          "phase": "commit"
+        }
+      }
+    ],
+    [
+      "book.discard",
+      {
+        "resource": {
+          "id": "lab-discard"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "book",
+          "phase": "discard"
+        }
+      }
+    ],
+    [
+      "list_bookings.query",
+      {
+        "resource": {
+          "id": "lab-query"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "list_bookings",
+          "phase": "query"
+        }
+      }
+    ],
+    [
+      "reschedule.collect",
+      {
+        "resource": {
+          "id": "lab-collect"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "reschedule",
+          "phase": "collect"
+        }
+      }
+    ],
+    [
+      "reschedule.confirm",
+      {
+        "resource": {
+          "id": "lab-confirm"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "reschedule",
+          "phase": "confirm"
+        }
+      }
+    ],
+    [
+      "reschedule.commit",
+      {
+        "resource": {
+          "id": "lab-commit"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "reschedule",
+          "phase": "commit"
+        }
+      }
+    ],
+    [
+      "reschedule.discard",
+      {
+        "resource": {
+          "id": "lab-discard"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "reschedule",
+          "phase": "discard"
+        }
+      }
+    ],
+    [
+      "cancel.collect",
+      {
+        "resource": {
+          "id": "lab-collect"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "cancel",
+          "phase": "collect"
+        }
+      }
+    ],
+    [
+      "cancel.confirm",
+      {
+        "resource": {
+          "id": "lab-confirm"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "cancel",
+          "phase": "confirm"
+        }
+      }
+    ],
+    [
+      "cancel.commit",
+      {
+        "resource": {
+          "id": "lab-commit"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "cancel",
+          "phase": "commit"
+        }
+      }
+    ],
+    [
+      "cancel.discard",
+      {
+        "resource": {
+          "id": "lab-discard"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "cancel",
+          "phase": "discard"
+        }
+      }
+    ],
+    [
+      "policy.query",
+      {
+        "resource": {
+          "id": "lab-query"
+        },
+        "attribute": {
+          "start": false,
+          "can_skipped": false,
+          "limit": 1
+        },
+        "data": {
+          "action": "policy",
+          "phase": "query"
+        }
+      }
+    ]
+  ],
+  "edges": [
+    [
+      "agent",
+      "welcome",
+      {
+        "intent": "none",
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "welcome",
+      "list_equipment.query",
+      {
+        "intent": "User wants to list available laboratory equipment",
+        "attribute": {
+          "weight": 1,
+          "pred": true,
+          "definition": "User wants to list available laboratory equipment",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "welcome",
+      "availability.collect",
+      {
+        "intent": "User wants to check the availability of specific equipment",
+        "attribute": {
+          "weight": 1,
+          "pred": true,
+          "definition": "User wants to check the availability of specific equipment",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "welcome",
+      "book.collect",
+      {
+        "intent": "User wants to create a reservation for a specific piece of equipment",
+        "attribute": {
+          "weight": 1,
+          "pred": true,
+          "definition": "User wants to create a reservation for a specific equipment",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "book.collect",
+      "book.confirm",
+      {
+        "intent": "none",
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "book.confirm",
+      "book.commit",
+      {
+        "intent": "Approve the displayed request",
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "User unconditionally approves exactly the previously displayed request, without changing fields or adding conditions.",
+          "sample_utterances": [
+            "Confirm.",
+            "Yes, go ahead."
+          ]
+        }
+      }
+    ],
+    [
+      "book.confirm",
+      "book.collect",
+      {
+        "intent": "Correct the pending request",
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "User supplies or changes equipment, date, time, duration or booking ID for this pending request; an affirmative with corrections belongs here.",
+          "sample_utterances": [
+            "Use 15:30 to 16:30 instead.",
+            "Yes, but change the date."
+          ]
+        }
+      }
+    ],
+    [
+      "book.confirm",
+      "book.discard",
+      {
+        "intent": "Abandon the pending request",
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "User declines or abandons this pending change. This is not a request to cancel an existing booking.",
+          "sample_utterances": [
+            "Never mind.",
+            "Do not proceed."
+          ]
+        }
+      }
+    ],
+    [
+      "welcome",
+      "list_bookings.query",
+      {
+        "intent": "User wants to list their own reservations",
+        "attribute": {
+          "weight": 1,
+          "pred": true,
+          "definition": "User wants to list their own reservations",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "welcome",
+      "reschedule.collect",
+      {
+        "intent": "User wants to reschedule an existing reservation",
+        "attribute": {
+          "weight": 1,
+          "pred": true,
+          "definition": "User wants to reschedule an existing reservation",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "reschedule.collect",
+      "reschedule.confirm",
+      {
+        "intent": "none",
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "reschedule.confirm",
+      "reschedule.commit",
+      {
+        "intent": "Approve the displayed request",
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "User unconditionally approves exactly the previously displayed request, without changing fields or adding conditions.",
+          "sample_utterances": [
+            "Confirm.",
+            "Yes, go ahead."
+          ]
+        }
+      }
+    ],
+    [
+      "reschedule.confirm",
+      "reschedule.collect",
+      {
+        "intent": "Correct the pending request",
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "User supplies or changes equipment, date, time, duration or booking ID for this pending request; an affirmative with corrections belongs here.",
+          "sample_utterances": [
+            "Use 15:30 to 16:30 instead.",
+            "Yes, but change the date."
+          ]
+        }
+      }
+    ],
+    [
+      "reschedule.confirm",
+      "reschedule.discard",
+      {
+        "intent": "Abandon the pending request",
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "User declines or abandons this pending change. This is not a request to cancel an existing booking.",
+          "sample_utterances": [
+            "Never mind.",
+            "Do not proceed."
+          ]
+        }
+      }
+    ],
+    [
+      "welcome",
+      "cancel.collect",
+      {
+        "intent": "User wants to cancel an existing reservation",
+        "attribute": {
+          "weight": 1,
+          "pred": true,
+          "definition": "User wants to cancel an existing reservation",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "cancel.collect",
+      "cancel.confirm",
+      {
+        "intent": "none",
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "",
+          "sample_utterances": []
+        }
+      }
+    ],
+    [
+      "cancel.confirm",
+      "cancel.commit",
+      {
+        "intent": "Approve the displayed request",
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "User unconditionally approves exactly the previously displayed request, without changing fields or adding conditions.",
+          "sample_utterances": [
+            "Confirm.",
+            "Yes, go ahead."
+          ]
+        }
+      }
+    ],
+    [
+      "cancel.confirm",
+      "cancel.collect",
+      {
+        "intent": "Correct the pending request",
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "User supplies or changes equipment, date, time, duration or booking ID for this pending request; an affirmative with corrections belongs here.",
+          "sample_utterances": [
+            "Use 15:30 to 16:30 instead.",
+            "Yes, but change the date."
+          ]
+        }
+      }
+    ],
+    [
+      "cancel.confirm",
+      "cancel.discard",
+      {
+        "intent": "Abandon the pending request",
+        "attribute": {
+          "weight": 1,
+          "pred": false,
+          "definition": "User declines or abandons this pending change. This is not a request to cancel an existing booking.",
+          "sample_utterances": [
+            "Never mind.",
+            "Do not proceed."
+          ]
+        }
+      }
+    ],
+    [
+      "welcome",
+      "policy.query",
+      {
+        "intent": "User wants to understand the booking rules",
+        "attribute": {
+          "weight": 1,
+          "pred": true,
+          "definition": "User wants to understand the booking rules",
+          "sample_utterances": []
+        }
+      }
+    ]
+  ],
+  "workers": [
+    {
+      "id": "lab-collect"
+    },
+    {
+      "id": "lab-commit"
+    },
+    {
+      "id": "lab-confirm"
+    },
+    {
+      "id": "lab-discard"
+    },
+    {
+      "id": "lab-query"
+    },
+    {
+      "id": "lab-welcome"
+    },
+    {
+      "id": "planner"
+    }
+  ],
+  "tools": [],
+  "agents": []
+}

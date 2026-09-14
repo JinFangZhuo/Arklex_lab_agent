@@ -1,0 +1,16 @@
+{
+  "instruction_id": "labbook-protocol",
+  "title": "Task planning constraints",
+  "content": "Generate exactly seven distinct high-level tasks: list equipment; check availability; create reservation; list own reservations; reschedule reservation; cancel reservation; explain booking rules. Do not generate authentication, payment, notifications, hardware operation, or administrator tasks. Break write tasks into collection/validation, display confirmation, and commit. Do not actually perform any business operation while generating a plan.",
+  "sections": [
+    {
+      "section_id": "scope",
+      "title": "Supported scope",
+      "steps": [
+        "Use only declared resources.",
+        "A write must be confirmed after its fields are displayed.",
+        "Querying data is not permission to change it."
+      ]
+    }
+  ]
+}
